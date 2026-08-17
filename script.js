@@ -42,7 +42,11 @@ const menuLinks = [
 
 let currentStep = 0;
 let isAnimating = false;
+
 let touchStartY = 0;
+let touchStartX = 0;
+let touchActive = false;
+
 let wheelAccumulator = 0;
 let lastWheelTime = 0;
 
@@ -63,6 +67,7 @@ const loaderMessages = [
 let loaderValue = 0;
 
 function runLoader() {
+
     const interval = setInterval(() => {
 
         loaderValue += Math.floor(Math.random() * 5) + 2;
@@ -128,17 +133,21 @@ function updateScene(nextStep, direction = 1) {
     currentStep = nextStep;
 
     sceneImages.forEach((image, index) => {
+
         image.classList.toggle(
             "active",
             index === currentStep
         );
+
     });
 
     sceneSteps.forEach((step, index) => {
+
         step.classList.toggle(
             "active",
             index === currentStep
         );
+
     });
 
     progressCurrent.textContent =
@@ -207,6 +216,7 @@ function animateTransition(
 
             incomingStep.style.transform =
                 "translateY(0)";
+
         });
 
     });
@@ -303,8 +313,19 @@ document.addEventListener("keydown", (event) => {
 experience.addEventListener(
     "touchstart",
     (event) => {
-        touchStartY =
-            event.changedTouches[0].clientY;
+
+        if (!event.changedTouches.length) {
+            return;
+        }
+
+        const touch =
+            event.changedTouches[0];
+
+        touchStartY = touch.clientY;
+        touchStartX = touch.clientX;
+
+        touchActive = true;
+
     },
     {
         passive: true
@@ -315,23 +336,56 @@ experience.addEventListener(
     "touchend",
     (event) => {
 
-        const touchEndY =
-            event.changedTouches[0].clientY;
+        if (!touchActive) {
+            return;
+        }
 
-        const difference =
-            touchStartY - touchEndY;
+        touchActive = false;
 
-        if (Math.abs(difference) < 45) {
+        if (!event.changedTouches.length) {
+            return;
+        }
+
+        const touch =
+            event.changedTouches[0];
+
+        const differenceY =
+            touchStartY - touch.clientY;
+
+        const differenceX =
+            touchStartX - touch.clientX;
+
+        const absY =
+            Math.abs(differenceY);
+
+        const absX =
+            Math.abs(differenceX);
+
+        const minimumSwipe =
+            45;
+
+        /*
+         * Телефонный интерфейс вертикальный.
+         * Поэтому вертикальный жест имеет приоритет.
+         * Горизонтальный жест не переключает сцену.
+         */
+
+        if (absY < minimumSwipe) {
+            return;
+        }
+
+        if (absY <= absX) {
             return;
         }
 
         const direction =
-            difference > 0 ? 1 : -1;
+            differenceY > 0 ? 1 : -1;
 
         updateScene(
             currentStep + direction,
             direction
         );
+
     },
     {
         passive: true
@@ -339,7 +393,7 @@ experience.addEventListener(
 );
 
 /* -------------------------------------------------------
-   DRAG
+   DESKTOP DRAG
 ------------------------------------------------------- */
 
 let dragStartX = 0;
@@ -349,12 +403,21 @@ experience.addEventListener(
     "pointerdown",
     (event) => {
 
+        /*
+         * На телефонах pointer-события не должны
+         * конкурировать с touch-событиями.
+         */
+        if (event.pointerType === "touch") {
+            return;
+        }
+
         if (event.target.closest("button, a")) {
             return;
         }
 
         dragging = true;
         dragStartX = event.clientX;
+
     }
 );
 
@@ -382,6 +445,7 @@ window.addEventListener(
             currentStep + direction,
             direction
         );
+
     }
 );
 
@@ -440,11 +504,14 @@ menuLinks.forEach((link) => {
                         targetStep,
                         direction
                     );
+
                 }
 
             }, 350);
+
         }
     );
+
 });
 
 /* -------------------------------------------------------
@@ -485,11 +552,20 @@ window.addEventListener(
     "pointermove",
     (event) => {
 
+        /*
+         * На touch это событие не используем
+         * для параллакса.
+         */
+        if (event.pointerType === "touch") {
+            return;
+        }
+
         targetX =
             (event.clientX / window.innerWidth - 0.5) * 2;
 
         targetY =
             (event.clientY / window.innerHeight - 0.5) * 2;
+
     }
 );
 
@@ -521,6 +597,7 @@ function parallaxLoop() {
             "--mouse-y",
             `${movementY}px`
         );
+
     }
 
     requestAnimationFrame(parallaxLoop);
@@ -587,5 +664,6 @@ bookingButton.addEventListener(
                 "auto";
 
         }, 2200);
+
     }
 );
