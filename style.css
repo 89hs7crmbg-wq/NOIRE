@@ -318,6 +318,10 @@ a {
     transform: scale(1);
 }
 
+.scene__image[data-scene="chef"] img {
+    object-position: center top;
+}
+
 .scene__grain {
     position: absolute;
     inset: 0;
@@ -458,45 +462,35 @@ a {
     color: var(--warm);
 }
 
-.table-hotspot {
+.table-copy {
     position: absolute;
-    pointer-events: auto;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(232, 223, 209, 0.28);
-    font-family: var(--font-ui);
-    font-size: 10px;
-    letter-spacing: 0.2em;
-    transition:
-        color 0.3s ease,
-        border-color 0.3s ease,
-        transform 0.4s var(--ease);
+    left: 7%;
+    bottom: 17%;
+    max-width: 420px;
 }
 
-.table-hotspot:hover {
-    color: var(--warm);
-    border-color: var(--warm);
-    transform: translateY(-3px);
+.table-copy .eyebrow {
+    margin-bottom: 20px;
 }
 
-.hotspot--menu {
-    left: 15%;
-    bottom: 24%;
+.table-copy h2 {
+    font-size: clamp(48px, 6vw, 96px);
+    line-height: 0.88;
+    font-weight: 300;
+    letter-spacing: -0.05em;
 }
 
-.hotspot--wine {
-    right: 17%;
-    top: 35%;
-}
-
-.hotspot--evening {
-    right: 13%;
-    bottom: 20%;
+.table-copy p {
+    margin-top: 22px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(232, 223, 209, 0.68);
 }
 
 /* CHEF */
 
 .chef-copy {
-    margin-left: clamp(30px, 9vw, 140px);
+    margin-left: clamp(24px, 5vw, 80px);
     margin-top: 40px;
 }
 
@@ -583,7 +577,7 @@ a {
 
 .minimal-label {
     position: absolute;
-    left: 9%;
+    left: 5%;
     top: 18%;
     bottom: auto;
     display: flex;
@@ -607,7 +601,8 @@ a {
 /* WINE */
 
 .wine-copy {
-    margin-left: clamp(30px, 5vw, 80px);
+    margin-left: clamp(80px, 17vw, 260px);
+    margin-top: 15vh;
     max-width: 430px;
 }
 
@@ -940,34 +935,29 @@ a {
         font-size: 14px;
     }
 
-    .wine-copy {
-        margin-left: 24px;
-        margin-right: 24px;
-        max-width: 330px;
-    }
-
-    .wine-copy h2 {
-        max-width: 330px;
-    }
-
     .table-label {
         left: 24px;
         top: 18%;
     }
 
-    .hotspot--menu {
+    .table-copy {
         left: 24px;
-        bottom: 22%;
-    }
-
-    .hotspot--wine {
-        right: 24px;
-        top: 32%;
-    }
-
-    .hotspot--evening {
         right: 24px;
         bottom: 17%;
+        max-width: 330px;
+    }
+
+    .table-copy h2 {
+        font-size: clamp(48px, 15vw, 70px);
+    }
+
+    .table-copy p {
+        font-size: 14px;
+    }
+
+    .chef-copy {
+        margin-left: 24px;
+        margin-right: 24px;
     }
 
     .chef-name {
@@ -988,13 +978,23 @@ a {
     }
 
     .minimal-label {
-        left: 24px;
+        left: 5%;
         top: 17%;
-        bottom: auto;
     }
 
     .minimal-label strong {
         font-size: clamp(44px, 12vw, 65px);
+    }
+
+    .wine-copy {
+        margin-left: 18vw;
+        margin-right: 24px;
+        margin-top: 16vh;
+        max-width: 330px;
+    }
+
+    .wine-copy h2 {
+        max-width: 330px;
     }
 
     .final-copy {
