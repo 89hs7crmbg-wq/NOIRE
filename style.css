@@ -6,10 +6,8 @@
     --cream-soft: rgba(232, 223, 209, 0.62);
     --line: rgba(232, 223, 209, 0.2);
     --warm: #c89b63;
-
     --font-main: "Manrope", sans-serif;
     --font-ui: "DM Sans", sans-serif;
-
     --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -48,7 +46,6 @@ button {
 a {
     text-decoration: none;
 }
-
 
 /* LOADER */
 
@@ -116,7 +113,6 @@ a {
     background: var(--cream);
     transition: width 0.1s linear;
 }
-
 
 /* CASE */
 
@@ -197,14 +193,15 @@ a {
     border-bottom: 1px solid rgba(232, 223, 209, 0.55);
     font-size: 8px;
     letter-spacing: 0.16em;
-    transition: border-color 0.3s ease, color 0.3s ease;
+    transition:
+        border-color 0.3s ease,
+        color 0.3s ease;
 }
 
 .case-panel__cta:hover {
     color: var(--warm);
     border-color: var(--warm);
 }
-
 
 /* HEADER */
 
@@ -271,7 +268,6 @@ a {
     width: 65%;
     margin-left: auto;
 }
-
 
 /* EXPERIENCE */
 
@@ -342,7 +338,6 @@ a {
         linear-gradient(180deg, rgba(0, 0, 0, 0.25), transparent 30%, rgba(0, 0, 0, 0.42));
 }
 
-
 /* CONTENT */
 
 .scene-content {
@@ -382,10 +377,10 @@ a {
 .eyebrow {
     margin-bottom: 28px;
     font-family: var(--font-ui);
-    font-size: 8px;
+    font-size: 10px;
     font-weight: 400;
     letter-spacing: 0.22em;
-    color: rgba(232, 223, 209, 0.58);
+    color: rgba(232, 223, 209, 0.62);
 }
 
 .hero-copy h1 {
@@ -400,11 +395,10 @@ a {
     gap: 30px;
     margin-top: 40px;
     font-family: var(--font-ui);
-    font-size: 8px;
+    font-size: 10px;
     letter-spacing: 0.18em;
-    color: rgba(232, 223, 209, 0.48);
+    color: rgba(232, 223, 209, 0.52);
 }
-
 
 /* GENERAL COPY */
 
@@ -430,11 +424,10 @@ a {
 
 .step-copy p {
     margin-top: 30px;
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.8;
-    color: rgba(232, 223, 209, 0.65);
+    color: rgba(232, 223, 209, 0.68);
 }
-
 
 /* TABLE */
 
@@ -457,7 +450,7 @@ a {
     gap: 12px;
     align-items: center;
     font-family: var(--font-ui);
-    font-size: 8px;
+    font-size: 10px;
     letter-spacing: 0.18em;
 }
 
@@ -471,7 +464,7 @@ a {
     padding: 10px 0;
     border-bottom: 1px solid rgba(232, 223, 209, 0.28);
     font-family: var(--font-ui);
-    font-size: 8px;
+    font-size: 10px;
     letter-spacing: 0.2em;
     transition:
         color 0.3s ease,
@@ -500,7 +493,6 @@ a {
     bottom: 20%;
 }
 
-
 /* CHEF */
 
 .chef-copy {
@@ -518,18 +510,17 @@ a {
 .chef-role {
     margin-top: 25px;
     font-family: var(--font-ui);
-    font-size: 8px;
+    font-size: 10px;
     letter-spacing: 0.18em;
     color: var(--warm);
 }
 
 .chef-copy p {
     margin-top: 35px;
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.8;
-    color: rgba(232, 223, 209, 0.62);
+    color: rgba(232, 223, 209, 0.66);
 }
-
 
 /* INGREDIENTS */
 
@@ -548,14 +539,15 @@ a {
     font-weight: 300;
     letter-spacing: -0.04em;
     line-height: 0.96;
-    transition: color 0.3s ease, transform 0.3s var(--ease);
+    transition:
+        color 0.3s ease,
+        transform 0.3s var(--ease);
 }
 
 .ingredient-list span:hover {
     color: var(--warm);
     transform: translateX(12px);
 }
-
 
 /* DISH */
 
@@ -568,7 +560,7 @@ a {
 .dish-index {
     margin-bottom: 16px;
     font-family: var(--font-ui);
-    font-size: 8px;
+    font-size: 10px;
     letter-spacing: 0.2em;
     color: var(--warm);
 }
@@ -582,18 +574,18 @@ a {
 
 .dish-copy p {
     margin-top: 20px;
-    font-size: 11px;
+    font-size: 13px;
     letter-spacing: 0.08em;
-    color: rgba(232, 223, 209, 0.55);
+    color: rgba(232, 223, 209, 0.58);
 }
-
 
 /* MINIMAL LABEL */
 
 .minimal-label {
     position: absolute;
     left: 9%;
-    bottom: 14%;
+    top: 18%;
+    bottom: auto;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -601,7 +593,7 @@ a {
 
 .minimal-label span {
     font-family: var(--font-ui);
-    font-size: 8px;
+    font-size: 10px;
     color: var(--warm);
     letter-spacing: 0.18em;
 }
@@ -612,20 +604,20 @@ a {
     letter-spacing: -0.04em;
 }
 
-
 /* WINE */
 
 .wine-copy {
-    margin-left: clamp(30px, 10vw, 160px);
+    margin-left: clamp(30px, 5vw, 80px);
+    max-width: 430px;
 }
 
 .wine-copy h2 {
+    max-width: 430px;
     font-size: clamp(44px, 6vw, 100px);
     line-height: 0.9;
     font-weight: 300;
     letter-spacing: -0.05em;
 }
-
 
 /* FINAL */
 
@@ -674,9 +666,9 @@ a {
     gap: 35px;
     margin-top: 30px;
     font-family: var(--font-ui);
-    font-size: 8px;
+    font-size: 10px;
     letter-spacing: 0.16em;
-    color: rgba(232, 223, 209, 0.42);
+    color: rgba(232, 223, 209, 0.46);
 }
 
 .final-case {
@@ -707,7 +699,6 @@ a {
     letter-spacing: 0.1em;
     color: rgba(232, 223, 209, 0.3);
 }
-
 
 /* PROGRESS */
 
@@ -747,7 +738,6 @@ a {
     transition: width 0.7s var(--ease);
 }
 
-
 /* SCROLL */
 
 .scroll-hint {
@@ -772,7 +762,6 @@ a {
     transform-origin: left;
     animation: scrollLine 1.8s ease-in-out infinite;
 }
-
 
 /* MENU */
 
@@ -854,11 +843,11 @@ a {
     color: rgba(232, 223, 209, 0.35);
 }
 
-
 /* ANIMATION */
 
 @keyframes pulse {
-    0%, 100% {
+    0%,
+    100% {
         opacity: 0.4;
         transform: scale(0.8);
     }
@@ -882,7 +871,6 @@ a {
     }
 }
 
-
 /* TABLE LIGHT INTERACTION */
 
 .experience.table-active .scene__image[data-scene="table"] {
@@ -898,7 +886,6 @@ a {
             rgba(0, 0, 0, 0.5) 100%
         );
 }
-
 
 /* MOBILE */
 
@@ -939,8 +926,7 @@ a {
     .step-copy--left,
     .step-copy--right,
     .chef-copy,
-    .ingredients,
-    .wine-copy {
+    .ingredients {
         margin-left: 24px;
         margin-right: 24px;
     }
@@ -951,7 +937,17 @@ a {
     }
 
     .step-copy p {
-        font-size: 12px;
+        font-size: 14px;
+    }
+
+    .wine-copy {
+        margin-left: 24px;
+        margin-right: 24px;
+        max-width: 330px;
+    }
+
+    .wine-copy h2 {
+        max-width: 330px;
     }
 
     .table-label {
@@ -993,7 +989,8 @@ a {
 
     .minimal-label {
         left: 24px;
-        bottom: 18%;
+        top: 17%;
+        bottom: auto;
     }
 
     .minimal-label strong {
