@@ -4,20 +4,41 @@ const loaderProgress = document.getElementById("loaderProgress");
 const loaderPercent = document.getElementById("loaderPercent");
 const loaderStatus = document.getElementById("loaderStatus");
 
-const sceneImages = [...document.querySelectorAll(".scene__image")];
-const sceneSteps = [...document.querySelectorAll(".scene-step")];
+const sceneImages = [
+    ...document.querySelectorAll(".scene__image")
+];
 
-const progressCurrent = document.querySelector(".progress__current");
-const progressFill = document.getElementById("progressFill");
-const scrollHint = document.getElementById("scrollHint");
+const sceneSteps = [
+    ...document.querySelectorAll(".scene-step")
+];
 
-const casePanel = document.getElementById("casePanel");
-const caseClose = document.getElementById("caseClose");
+const progressCurrent =
+    document.querySelector(".progress__current");
 
-const menuButton = document.getElementById("menuButton");
-const menuOverlay = document.getElementById("menuOverlay");
-const menuClose = document.getElementById("menuClose");
-const menuLinks = [...document.querySelectorAll("[data-menu-step]")];
+const progressFill =
+    document.getElementById("progressFill");
+
+const scrollHint =
+    document.getElementById("scrollHint");
+
+const casePanel =
+    document.getElementById("casePanel");
+
+const caseClose =
+    document.getElementById("caseClose");
+
+const menuButton =
+    document.getElementById("menuButton");
+
+const menuOverlay =
+    document.getElementById("menuOverlay");
+
+const menuClose =
+    document.getElementById("menuClose");
+
+const menuLinks = [
+    ...document.querySelectorAll("[data-menu-step]")
+];
 
 let currentStep = 0;
 let isAnimating = false;
@@ -26,7 +47,6 @@ let wheelAccumulator = 0;
 let lastWheelTime = 0;
 
 const TOTAL_STEPS = sceneSteps.length;
-
 
 /* -------------------------------------------------------
    LOADER
@@ -44,41 +64,56 @@ let loaderValue = 0;
 
 function runLoader() {
     const interval = setInterval(() => {
+
         loaderValue += Math.floor(Math.random() * 5) + 2;
 
         if (loaderValue >= 100) {
+
             loaderValue = 100;
+
             clearInterval(interval);
 
-            loaderStatus.textContent = loaderMessages[4];
+            loaderStatus.textContent =
+                loaderMessages[4];
 
             setTimeout(() => {
                 loader.classList.add("loaded");
                 document.body.classList.add("ready");
             }, 650);
+
         } else {
+
             const messageIndex = Math.min(
                 Math.floor(loaderValue / 25),
                 loaderMessages.length - 2
             );
 
-            loaderStatus.textContent = loaderMessages[messageIndex];
+            loaderStatus.textContent =
+                loaderMessages[messageIndex];
         }
 
-        loaderProgress.style.width = `${loaderValue}%`;
-        loaderPercent.textContent = `${loaderValue}%`;
+        loaderProgress.style.width =
+            `${loaderValue}%`;
+
+        loaderPercent.textContent =
+            `${loaderValue}%`;
+
     }, 75);
 }
 
 window.addEventListener("load", runLoader);
-
 
 /* -------------------------------------------------------
    SCENE
 ------------------------------------------------------- */
 
 function updateScene(nextStep, direction = 1) {
-    if (nextStep < 0 || nextStep >= TOTAL_STEPS || isAnimating) {
+
+    if (
+        nextStep < 0 ||
+        nextStep >= TOTAL_STEPS ||
+        isAnimating
+    ) {
         return;
     }
 
@@ -89,14 +124,21 @@ function updateScene(nextStep, direction = 1) {
     isAnimating = true;
 
     const previousStep = currentStep;
+
     currentStep = nextStep;
 
     sceneImages.forEach((image, index) => {
-        image.classList.toggle("active", index === currentStep);
+        image.classList.toggle(
+            "active",
+            index === currentStep
+        );
     });
 
     sceneSteps.forEach((step, index) => {
-        step.classList.toggle("active", index === currentStep);
+        step.classList.toggle(
+            "active",
+            index === currentStep
+        );
     });
 
     progressCurrent.textContent =
@@ -105,7 +147,8 @@ function updateScene(nextStep, direction = 1) {
     const progressValue =
         (currentStep / (TOTAL_STEPS - 1)) * 100;
 
-    progressFill.style.width = `${progressValue}%`;
+    progressFill.style.width =
+        `${progressValue}%`;
 
     if (currentStep === 0) {
         scrollHint.style.opacity = "1";
@@ -123,19 +166,31 @@ function updateScene(nextStep, direction = 1) {
         casePanel.classList.remove("closed");
     }
 
-    animateTransition(previousStep, currentStep, direction);
+    animateTransition(
+        previousStep,
+        currentStep,
+        direction
+    );
 
     setTimeout(() => {
         isAnimating = false;
     }, 1100);
 }
 
+function animateTransition(
+    from,
+    to,
+    direction
+) {
 
-function animateTransition(from, to, direction) {
-    const incomingImage = sceneImages[to];
-    const incomingStep = sceneSteps[to];
+    const incomingImage =
+        sceneImages[to];
 
-    const offset = direction > 0 ? 40 : -40;
+    const incomingStep =
+        sceneSteps[to];
+
+    const offset =
+        direction > 0 ? 40 : -40;
 
     incomingImage.style.transform =
         `scale(1.08) translateX(${offset}px)`;
@@ -144,19 +199,25 @@ function animateTransition(from, to, direction) {
         `translateY(${direction > 0 ? 25 : -25}px)`;
 
     requestAnimationFrame(() => {
+
         requestAnimationFrame(() => {
-            incomingImage.style.transform = "scale(1)";
-            incomingStep.style.transform = "translateY(0)";
+
+            incomingImage.style.transform =
+                "scale(1)";
+
+            incomingStep.style.transform =
+                "translateY(0)";
         });
+
     });
 }
-
 
 /* -------------------------------------------------------
    WHEEL / TRACKPAD
 ------------------------------------------------------- */
 
 function handleWheel(event) {
+
     event.preventDefault();
 
     const now = Date.now();
@@ -175,19 +236,24 @@ function handleWheel(event) {
         return;
     }
 
-    const direction = wheelAccumulator > 0 ? 1 : -1;
+    const direction =
+        wheelAccumulator > 0 ? 1 : -1;
 
     wheelAccumulator = 0;
 
-    updateScene(currentStep + direction, direction);
+    updateScene(
+        currentStep + direction,
+        direction
+    );
 }
 
 experience.addEventListener(
     "wheel",
     handleWheel,
-    { passive: false }
+    {
+        passive: false
+    }
 );
-
 
 /* -------------------------------------------------------
    KEYBOARD
@@ -201,8 +267,13 @@ document.addEventListener("keydown", (event) => {
         event.key === "PageDown" ||
         event.key === " "
     ) {
+
         event.preventDefault();
-        updateScene(currentStep + 1, 1);
+
+        updateScene(
+            currentStep + 1,
+            1
+        );
     }
 
     if (
@@ -210,15 +281,20 @@ document.addEventListener("keydown", (event) => {
         event.key === "ArrowLeft" ||
         event.key === "PageUp"
     ) {
+
         event.preventDefault();
-        updateScene(currentStep - 1, -1);
+
+        updateScene(
+            currentStep - 1,
+            -1
+        );
     }
 
     if (event.key === "Escape") {
         menuOverlay.classList.remove("open");
     }
-});
 
+});
 
 /* -------------------------------------------------------
    TOUCH
@@ -227,28 +303,40 @@ document.addEventListener("keydown", (event) => {
 experience.addEventListener(
     "touchstart",
     (event) => {
-        touchStartY = event.changedTouches[0].clientY;
+        touchStartY =
+            event.changedTouches[0].clientY;
     },
-    { passive: true }
+    {
+        passive: true
+    }
 );
 
 experience.addEventListener(
     "touchend",
     (event) => {
-        const touchEndY = event.changedTouches[0].clientY;
-        const difference = touchStartY - touchEndY;
+
+        const touchEndY =
+            event.changedTouches[0].clientY;
+
+        const difference =
+            touchStartY - touchEndY;
 
         if (Math.abs(difference) < 45) {
             return;
         }
 
-        const direction = difference > 0 ? 1 : -1;
+        const direction =
+            difference > 0 ? 1 : -1;
 
-        updateScene(currentStep + direction, direction);
+        updateScene(
+            currentStep + direction,
+            direction
+        );
     },
-    { passive: true }
+    {
+        passive: true
+    }
 );
-
 
 /* -------------------------------------------------------
    DRAG
@@ -257,78 +345,107 @@ experience.addEventListener(
 let dragStartX = 0;
 let dragging = false;
 
-experience.addEventListener("pointerdown", (event) => {
-    if (event.target.closest("button, a")) {
-        return;
+experience.addEventListener(
+    "pointerdown",
+    (event) => {
+
+        if (event.target.closest("button, a")) {
+            return;
+        }
+
+        dragging = true;
+        dragStartX = event.clientX;
     }
+);
 
-    dragging = true;
-    dragStartX = event.clientX;
-});
+window.addEventListener(
+    "pointerup",
+    (event) => {
 
-window.addEventListener("pointerup", (event) => {
+        if (!dragging) {
+            return;
+        }
 
-    if (!dragging) {
-        return;
+        dragging = false;
+
+        const difference =
+            dragStartX - event.clientX;
+
+        if (Math.abs(difference) < 50) {
+            return;
+        }
+
+        const direction =
+            difference > 0 ? 1 : -1;
+
+        updateScene(
+            currentStep + direction,
+            direction
+        );
     }
-
-    dragging = false;
-
-    const difference = dragStartX - event.clientX;
-
-    if (Math.abs(difference) < 50) {
-        return;
-    }
-
-    const direction = difference > 0 ? 1 : -1;
-
-    updateScene(currentStep + direction, direction);
-});
-
+);
 
 /* -------------------------------------------------------
    CASE PANEL
 ------------------------------------------------------- */
 
-caseClose.addEventListener("click", () => {
-    casePanel.classList.add("closed");
-});
-
+caseClose.addEventListener(
+    "click",
+    () => {
+        casePanel.classList.add("closed");
+    }
+);
 
 /* -------------------------------------------------------
    MENU
 ------------------------------------------------------- */
 
-menuButton.addEventListener("click", () => {
-    menuOverlay.classList.add("open");
-});
+menuButton.addEventListener(
+    "click",
+    () => {
+        menuOverlay.classList.add("open");
+    }
+);
 
-menuClose.addEventListener("click", () => {
-    menuOverlay.classList.remove("open");
-});
+menuClose.addEventListener(
+    "click",
+    () => {
+        menuOverlay.classList.remove("open");
+    }
+);
 
 menuLinks.forEach((link) => {
 
-    link.addEventListener("click", (event) => {
-        event.preventDefault();
+    link.addEventListener(
+        "click",
+        (event) => {
 
-        const targetStep =
-            Number(link.dataset.menuStep);
+            event.preventDefault();
 
-        menuOverlay.classList.remove("open");
+            const targetStep =
+                Number(link.dataset.menuStep);
 
-        setTimeout(() => {
-            const direction =
-                targetStep > currentStep ? 1 : -1;
+            menuOverlay.classList.remove("open");
 
-            if (targetStep !== currentStep) {
-                updateScene(targetStep, direction);
-            }
-        }, 350);
-    });
+            setTimeout(() => {
 
+                const direction =
+                    targetStep > currentStep
+                        ? 1
+                        : -1;
+
+                if (targetStep !== currentStep) {
+
+                    updateScene(
+                        targetStep,
+                        direction
+                    );
+                }
+
+            }, 350);
+        }
+    );
 });
-
 
 /* -------------------------------------------------------
    TABLE INTERACTION
@@ -339,16 +456,21 @@ const tableHotspots =
 
 tableHotspots.forEach((hotspot) => {
 
-    hotspot.addEventListener("mouseenter", () => {
-        experience.classList.add("table-active");
-    });
+    hotspot.addEventListener(
+        "mouseenter",
+        () => {
+            experience.classList.add("table-active");
+        }
+    );
 
-    hotspot.addEventListener("mouseleave", () => {
-        experience.classList.remove("table-active");
-    });
+    hotspot.addEventListener(
+        "mouseleave",
+        () => {
+            experience.classList.remove("table-active");
+        }
+    );
 
 });
-
 
 /* -------------------------------------------------------
    MOUSE PARALLAX
@@ -359,19 +481,25 @@ let mouseY = 0;
 let targetX = 0;
 let targetY = 0;
 
-window.addEventListener("pointermove", (event) => {
+window.addEventListener(
+    "pointermove",
+    (event) => {
 
-    targetX =
-        (event.clientX / window.innerWidth - 0.5) * 2;
+        targetX =
+            (event.clientX / window.innerWidth - 0.5) * 2;
 
-    targetY =
-        (event.clientY / window.innerHeight - 0.5) * 2;
-});
+        targetY =
+            (event.clientY / window.innerHeight - 0.5) * 2;
+    }
+);
 
 function parallaxLoop() {
 
-    mouseX += (targetX - mouseX) * 0.035;
-    mouseY += (targetY - mouseY) * 0.035;
+    mouseX +=
+        (targetX - mouseX) * 0.035;
+
+    mouseY +=
+        (targetY - mouseY) * 0.035;
 
     const activeImage =
         sceneImages[currentStep];
@@ -400,7 +528,6 @@ function parallaxLoop() {
 
 parallaxLoop();
 
-
 /* -------------------------------------------------------
    HERO IMAGE INITIALIZATION
 ------------------------------------------------------- */
@@ -415,18 +542,22 @@ sceneImages.forEach((image, index) => {
 
 });
 
-
 /* -------------------------------------------------------
    INITIAL UI
 ------------------------------------------------------- */
 
 progressCurrent.textContent = "01";
+
 progressFill.style.width = "0%";
 
 sceneSteps.forEach((step, index) => {
-    step.classList.toggle("active", index === 0);
-});
 
+    step.classList.toggle(
+        "active",
+        index === 0
+    );
+
+});
 
 /* -------------------------------------------------------
    BOOKING
@@ -435,14 +566,26 @@ sceneSteps.forEach((step, index) => {
 const bookingButton =
     document.querySelector(".booking-button");
 
-bookingButton.addEventListener("click", (event) => {
-    event.preventDefault();
+bookingButton.addEventListener(
+    "click",
+    (event) => {
 
-    bookingButton.textContent = "БРОНИРОВАНИЕ СКОРО";
-    bookingButton.style.pointerEvents = "none";
+        event.preventDefault();
 
-    setTimeout(() => {
-        bookingButton.textContent = "ЗАБРОНИРОВАТЬ СТОЛ";
-        bookingButton.style.pointerEvents = "auto";
-    }, 2200);
-});
+        bookingButton.textContent =
+            "БРОНИРОВАНИЕ СКОРО";
+
+        bookingButton.style.pointerEvents =
+            "none";
+
+        setTimeout(() => {
+
+            bookingButton.textContent =
+                "ЗАБРОНИРОВАТЬ СТОЛ";
+
+            bookingButton.style.pointerEvents =
+                "auto";
+
+        }, 2200);
+    }
+);
