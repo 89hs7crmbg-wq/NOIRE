@@ -318,9 +318,12 @@ a {
     transform: scale(1);
 }
 
-/* Блок 6: возвращаем шефа выше в кадре */
+/* БЛОК 6 / ШЕФ
+   IMG_8813.png.
+   Поднимаем исходный кадр максимально вверх,
+   чтобы в области crop была вся голова и лицо. */
 .scene__image[data-scene="kitchen"] img {
-    object-position: center 42%;
+    object-position: center 0%;
 }
 
 .scene__grain {
@@ -481,13 +484,13 @@ a {
     letter-spacing: -0.05em;
 }
 
-/* CHEF */
-
+/* БЛОК 5 / ШЕФ
+   Текст принудительно слева. */
 .chef-copy {
-    margin-left: clamp(24px, 4vw, 65px);
+    margin-left: clamp(25px, 5vw, 80px);
     margin-right: auto;
     margin-top: 40px;
-    max-width: 500px;
+    max-width: 430px;
 }
 
 .chef-name {
@@ -569,11 +572,11 @@ a {
     color: rgba(232, 223, 209, 0.58);
 }
 
-/* MINIMAL LABEL */
+/* БЛОК 10 / ПОДАЧА */
 
 .minimal-label {
     position: absolute;
-    left: 5%;
+    left: 4%;
     top: 18%;
     bottom: auto;
     display: flex;
@@ -594,28 +597,44 @@ a {
     letter-spacing: -0.04em;
 }
 
-/* WINE */
+/* БЛОК 11 / ВИНО
+   Жёстко центрируем весь текстовый блок относительно viewport. */
 
 .wine-copy {
     position: absolute;
     left: 50%;
     top: 50%;
-    margin: 0;
+    width: min(430px, 32vw);
     max-width: 430px;
+    margin: 0;
     transform: translate(-50%, -50%);
     text-align: center;
 }
 
 .wine-copy .eyebrow {
+    width: 100%;
     text-align: center;
 }
 
 .wine-copy h2 {
+    width: 100%;
     max-width: 430px;
+    margin: 0 auto;
     font-size: clamp(44px, 6vw, 100px);
     line-height: 0.9;
     font-weight: 300;
     letter-spacing: -0.05em;
+    text-align: center;
+}
+
+/* БЛОК 12 / ВЕЧЕР
+   Отдельно от общего step-copy--left,
+   чтобы позиция действительно была слева. */
+
+.scene-step[data-step="12"] .step-copy--left {
+    margin-left: clamp(25px, 6vw, 95px);
+    margin-right: auto;
+    max-width: 480px;
 }
 
 /* FINAL */
