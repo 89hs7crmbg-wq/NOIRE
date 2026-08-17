@@ -318,11 +318,7 @@ a {
     transform: scale(1);
 }
 
-/* БЛОК 6
-   Реальный HTML:
-   data-step="5"
-   data-scene="chef"
-   IMG_8812.png */
+/* CHEF */
 
 .scene__image[data-scene="chef"] img {
     object-position: center 15%;
@@ -442,7 +438,7 @@ a {
 /* TABLE */
 
 .scene-step--table {
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
 }
 
@@ -470,13 +466,17 @@ a {
 
 .table-copy {
     position: absolute;
-    left: 7%;
-    bottom: 17%;
+    left: 50%;
+    top: 50%;
+    bottom: auto;
     max-width: 500px;
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
 
 .table-copy .eyebrow {
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .table-copy h2 {
@@ -484,6 +484,7 @@ a {
     line-height: 0.88;
     font-weight: 300;
     letter-spacing: -0.05em;
+    text-align: center;
 }
 
 /* CHEF */
@@ -891,87 +892,6 @@ a {
         );
 }
 
-/* =========================================================
-   DESKTOP / ТОЧЕЧНЫЕ ПОЗИЦИИ БЛОКОВ
-   ========================================================= */
-
-@media (min-width: 801px) {
-
-    /* БЛОК 5
-       data-step="4"
-       KITCHEN
-       Текст слева. */
-    .scene-step[data-step="4"] .step-copy--right {
-        margin-left: clamp(30px, 7vw, 110px);
-        margin-right: auto;
-    }
-
-    /* БЛОК 6
-       data-step="5"
-       CHEF
-       Портрет шефа поднимаем относительно исходного кадра. */
-    .scene__image[data-scene="chef"] img {
-        object-position: center 15%;
-    }
-
-    /* БЛОК 10
-       data-step="9"
-       GUESTS
-       Текст слева. */
-    .scene-step[data-step="9"] .step-copy--right {
-        margin-left: clamp(30px, 6vw, 100px);
-        margin-right: auto;
-    }
-
-    /* БЛОК 11
-       data-step="10"
-       SERVING
-       Текст строго в центре экрана. */
-    .scene-step[data-step="10"] .minimal-label {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        right: auto;
-        bottom: auto;
-        width: max-content;
-        margin: 0;
-        transform: translate(-50%, -50%);
-        align-items: center;
-        text-align: center;
-    }
-
-    .scene-step[data-step="10"] .minimal-label span,
-    .scene-step[data-step="10"] .minimal-label strong {
-        display: block;
-        width: 100%;
-        text-align: center;
-    }
-
-    /* БЛОК 12
-       data-step="11"
-       WINE
-       Текст слева. */
-    .scene-step[data-step="11"] .wine-copy {
-        left: clamp(30px, 7vw, 110px);
-        top: 50%;
-        right: auto;
-        width: auto;
-        max-width: 430px;
-        margin: 0;
-        transform: translateY(-50%);
-        text-align: left;
-    }
-
-    .scene-step[data-step="11"] .wine-copy .eyebrow {
-        text-align: left;
-    }
-
-    .scene-step[data-step="11"] .wine-copy h2 {
-        margin: 0;
-        text-align: left;
-    }
-}
-
 /* MOBILE */
 
 @media (max-width: 800px) {
@@ -1025,32 +945,50 @@ a {
         font-size: 14px;
     }
 
-    /* Блок 4 */
+    /* БЛОК 4
+       Всегда строго по центру */
+
+    .scene-step--table {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .table-copy {
+        left: 50%;
+        top: 50%;
+        right: auto;
+        bottom: auto;
+        width: calc(100% - 48px);
+        max-width: 330px;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .table-copy .eyebrow {
+        text-align: center;
+    }
+
+    .table-copy h2 {
+        font-size: clamp(42px, 12vw, 64px);
+        text-align: center;
+    }
+
     .table-label {
         left: 24px;
         top: 18%;
     }
 
-    .table-copy {
-        left: 24px;
-        right: 24px;
-        bottom: 17%;
-        max-width: 330px;
-    }
+    /* БЛОК 5 */
 
-    .table-copy h2 {
-        font-size: clamp(42px, 12vw, 64px);
-    }
-
-    /* Блок 5 */
     .chef-copy {
         margin-left: 20px;
         margin-right: auto;
     }
 
-    /* Блок 6 */
-    .scene__image[data-scene="kitchen"] img {
-        object-position: center 45%;
+    /* БЛОК 6 */
+
+    .scene__image[data-scene="chef"] img {
+        object-position: center 15%;
     }
 
     .chef-name {
@@ -1070,39 +1008,74 @@ a {
         font-size: clamp(58px, 18vw, 95px);
     }
 
-    /* Блок 10 */
-    .minimal-label {
-        left: 5%;
-        top: 17%;
+    /* БЛОК 10
+       data-step="9"
+       Поднимаем текст примерно к 1/3 */
+
+    .scene-step[data-step="9"] .step-copy--right {
+        margin-left: 24px;
+        margin-right: 24px;
+        margin-top: -30vh;
+    }
+
+    /* БЛОК 11
+       data-step="10"
+       Строго центр */
+
+    .scene-step[data-step="10"] {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .scene-step[data-step="10"] .minimal-label {
+        position: absolute;
+        left: 50%;
+        top: 33.333%;
+        right: auto;
+        bottom: auto;
+        width: max-content;
+        margin: 0;
+        transform: translate(-50%, -50%);
+        align-items: center;
+        text-align: center;
+    }
+
+    .scene-step[data-step="10"] .minimal-label span,
+    .scene-step[data-step="10"] .minimal-label strong {
+        display: block;
+        width: 100%;
+        text-align: center;
     }
 
     .minimal-label strong {
         font-size: clamp(44px, 12vw, 65px);
     }
 
-    /* Блок 11 */
-    .wine-copy {
-        left: 50%;
+    /* БЛОК 12
+       data-step="11"
+       Текст слева + полупрозрачность */
+
+    .scene-step[data-step="11"] .wine-copy {
+        left: 24px;
+        right: 24px;
         top: 50%;
+        width: auto;
+        max-width: 330px;
         margin: 0;
+        transform: translateY(-50%);
+        text-align: left;
+    }
+
+    .scene-step[data-step="11"] .wine-copy .eyebrow {
+        text-align: left;
+        color: rgba(232, 223, 209, 0.38);
+    }
+
+    .scene-step[data-step="11"] .wine-copy h2 {
         max-width: 330px;
-        transform: translate(-50%, -50%);
-        text-align: center;
-    }
-
-    .wine-copy .eyebrow {
-        text-align: center;
-    }
-
-    .wine-copy h2 {
-        max-width: 330px;
-        text-align: center;
-    }
-
-    /* Блок 12 */
-    .scene-step[data-step="12"] .step-copy--left {
-        margin-left: 12px;
-        margin-right: 24px;
+        text-align: left;
+        color: rgba(232, 223, 209, 0.48);
+        text-shadow: 0 1px 18px rgba(0, 0, 0, 0.55);
     }
 
     .final-copy {
