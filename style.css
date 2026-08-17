@@ -318,12 +318,14 @@ a {
     transform: scale(1);
 }
 
-/* БЛОК 6 / ШЕФ
-   IMG_8813.png.
-   Поднимаем исходный кадр максимально вверх,
-   чтобы в области crop была вся голова и лицо. */
-.scene__image[data-scene="kitchen"] img {
-    object-position: center 0%;
+/* БЛОК 6
+   Реальный HTML:
+   data-step="5"
+   data-scene="chef"
+   IMG_8812.png */
+
+.scene__image[data-scene="chef"] img {
+    object-position: center 15%;
 }
 
 .scene__grain {
@@ -484,13 +486,13 @@ a {
     letter-spacing: -0.05em;
 }
 
-/* БЛОК 5 / ШЕФ
-   Текст принудительно слева. */
+/* CHEF */
+
 .chef-copy {
-    margin-left: clamp(25px, 5vw, 80px);
+    margin-left: clamp(24px, 4vw, 65px);
     margin-right: auto;
     margin-top: 40px;
-    max-width: 430px;
+    max-width: 500px;
 }
 
 .chef-name {
@@ -572,11 +574,11 @@ a {
     color: rgba(232, 223, 209, 0.58);
 }
 
-/* БЛОК 10 / ПОДАЧА */
+/* MINIMAL LABEL */
 
 .minimal-label {
     position: absolute;
-    left: 4%;
+    left: 5%;
     top: 18%;
     bottom: auto;
     display: flex;
@@ -597,44 +599,28 @@ a {
     letter-spacing: -0.04em;
 }
 
-/* БЛОК 11 / ВИНО
-   Жёстко центрируем весь текстовый блок относительно viewport. */
+/* WINE */
 
 .wine-copy {
     position: absolute;
     left: 50%;
     top: 50%;
-    width: min(430px, 32vw);
-    max-width: 430px;
     margin: 0;
+    max-width: 430px;
     transform: translate(-50%, -50%);
     text-align: center;
 }
 
 .wine-copy .eyebrow {
-    width: 100%;
     text-align: center;
 }
 
 .wine-copy h2 {
-    width: 100%;
     max-width: 430px;
-    margin: 0 auto;
     font-size: clamp(44px, 6vw, 100px);
     line-height: 0.9;
     font-weight: 300;
     letter-spacing: -0.05em;
-    text-align: center;
-}
-
-/* БЛОК 12 / ВЕЧЕР
-   Отдельно от общего step-copy--left,
-   чтобы позиция действительно была слева. */
-
-.scene-step[data-step="12"] .step-copy--left {
-    margin-left: clamp(25px, 6vw, 95px);
-    margin-right: auto;
-    max-width: 480px;
 }
 
 /* FINAL */
@@ -903,6 +889,87 @@ a {
             transparent 24%,
             rgba(0, 0, 0, 0.5) 100%
         );
+}
+
+/* =========================================================
+   DESKTOP / ТОЧЕЧНЫЕ ПОЗИЦИИ БЛОКОВ
+   ========================================================= */
+
+@media (min-width: 801px) {
+
+    /* БЛОК 5
+       data-step="4"
+       KITCHEN
+       Текст слева. */
+    .scene-step[data-step="4"] .step-copy--right {
+        margin-left: clamp(30px, 7vw, 110px);
+        margin-right: auto;
+    }
+
+    /* БЛОК 6
+       data-step="5"
+       CHEF
+       Портрет шефа поднимаем относительно исходного кадра. */
+    .scene__image[data-scene="chef"] img {
+        object-position: center 15%;
+    }
+
+    /* БЛОК 10
+       data-step="9"
+       GUESTS
+       Текст слева. */
+    .scene-step[data-step="9"] .step-copy--right {
+        margin-left: clamp(30px, 6vw, 100px);
+        margin-right: auto;
+    }
+
+    /* БЛОК 11
+       data-step="10"
+       SERVING
+       Текст строго в центре экрана. */
+    .scene-step[data-step="10"] .minimal-label {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        right: auto;
+        bottom: auto;
+        width: max-content;
+        margin: 0;
+        transform: translate(-50%, -50%);
+        align-items: center;
+        text-align: center;
+    }
+
+    .scene-step[data-step="10"] .minimal-label span,
+    .scene-step[data-step="10"] .minimal-label strong {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* БЛОК 12
+       data-step="11"
+       WINE
+       Текст слева. */
+    .scene-step[data-step="11"] .wine-copy {
+        left: clamp(30px, 7vw, 110px);
+        top: 50%;
+        right: auto;
+        width: auto;
+        max-width: 430px;
+        margin: 0;
+        transform: translateY(-50%);
+        text-align: left;
+    }
+
+    .scene-step[data-step="11"] .wine-copy .eyebrow {
+        text-align: left;
+    }
+
+    .scene-step[data-step="11"] .wine-copy h2 {
+        margin: 0;
+        text-align: left;
+    }
 }
 
 /* MOBILE */
