@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <meta name="theme-color" content="#080706">
+    <meta name="description" content="NOIRÉ — contemporary fine dining в Сургуте. Вечер начинается до первого блюда.">
+
+    <title>NOIRÉ — Contemporary Fine Dining</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="loader" id="loader">
+    <div class="loader__inner">
+        <img class="loader__logo" src="IMG_8735.png" alt="AIKharisov">
+        <div class="loader__brand">NOIRÉ</div>
+
+        <div class="loader__status">
+            <span id="loaderStatus">INITIALIZING</span>
+            <span id="loaderPercent">0%</span>
+        </div>
+
+        <div class="loader__line">
+            <span id="loaderProgress"></span>
+        </div>
+    </div>
+</div>
+
+
+<div class="case-panel" id="casePanel">
+    <div class="case-panel__top">
+        <span>DIGITAL CASE</span>
+        <button class="case-panel__close" id="caseClose" aria-label="Закрыть">×</button>
+    </div>
+
+    <div class="case-panel__brand">AIKHARISOV</div>
+    <div class="case-panel__project">NOIRÉ</div>
+
+    <p>
+        Концептуальный digital-кейс ресторана
+        contemporary fine dining в Сургуте.
+    </p>
+
+    <small>
+        Ресторан вымышленный.<br>
+        Это демонстрационный проект.
+    </small>
+
+    <a href="#booking" class="case-panel__cta">ЗАКАЗАТЬ САЙТ</a>
+</div>
+
+
+<header class="header">
+
+    <a href="#hero" class="header__brand">
+        NOIRÉ
+    </a>
+
+    <div class="header__center">
+        <span class="status-dot"></span>
+        <span>СИСТЕМА ВЕЧЕРА АКТИВНА</span>
+    </div>
+
+    <button class="menu-button" id="menuButton">
+        <span></span>
+        <span></span>
+    </button>
+
+</header>
+
+
+<main class="experience" id="experience">
+
+    <div class="scene">
+
+        <div class="scene__image scene__image--hero active" data-scene="hero">
+            <img src="IMG_8804.png" alt="NOIRÉ ночью">
+        </div>
+
+        <div class="scene__image" data-scene="entrance">
+            <img src="IMG_8808.png" alt="Вход в NOIRÉ">
+        </div>
+
+        <div class="scene__image" data-scene="hall">
+            <img src="IMG_8807.png" alt="Главный зал NOIRÉ">
+        </div>
+
+        <div class="scene__image" data-scene="table">
+            <img src="IMG_8809.png" alt="Стол NOIRÉ">
+        </div>
+
+        <div class="scene__image" data-scene="kitchen">
+            <img src="IMG_8813.png" alt="Кухня NOIRÉ">
+        </div>
+
+        <div class="scene__image" data-scene="chef">
+            <img src="IMG_8812.png" alt="Шеф-повар NOIRÉ">
+        </div>
+
+        <div class="scene__image" data-scene="products">
+            <img src="IMG_8814.png" alt="Продукты NOIRÉ">
+        </div>
+
+        <div class="scene__image" data-scene="cooking">
+            <img src="IMG_8815.png" alt="Приготовление блюда">
+        </div>
+
+        <div class="scene__image" data-scene="dish">
+            <img src="IMG_8816.png" alt="Фирменное блюдо NOIRÉ">
+        </div>
+
+        <div class="scene__image" data-scene="guests">
+            <img src="IMG_8817.png" alt="Гости NOIRÉ">
+        </div>
+
+        <div class="scene__image" data-scene="serving">
+            <img src="IMG_8818.png" alt="Подача блюда">
+        </div>
+
+        <div class="scene__image" data-scene="wine">
+            <img src="IMG_8820.png" alt="Вино NOIRÉ">
+        </div>
+
+        <div class="scene__image" data-scene="evening">
+            <img src="IMG_8821.png" alt="Вечерний стол">
+        </div>
+
+        <div class="scene__image" data-scene="service">
+            <img src="IMG_8822.png" alt="NOIRÉ во время сервиса">
+        </div>
+
+        <div class="scene__grain"></div>
+        <div class="scene__vignette"></div>
+
+    </div>
+
+
+    <div class="scene-content">
+
+        <section class="scene-step scene-step--hero active" data-step="0">
+            <div class="hero-copy">
+                <div class="eyebrow">CONTEMPORARY FINE DINING</div>
+
+                <h1>
+                    ВЕЧЕР<br>
+                    НАЧИНАЕТСЯ<br>
+                    ДО ПЕРВОГО<br>
+                    БЛЮДА.
+                </h1>
+
+                <div class="hero-meta">
+                    <span>СУРГУТ</span>
+                    <span>61° N · 73° E</span>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="scene-step" data-step="1">
+            <div class="step-copy step-copy--left">
+                <div class="eyebrow">01 / ENTRANCE</div>
+                <h2>ВОЙДИТЕ.</h2>
+
+                <p>
+                    Снаружи — Сургут.<br>
+                    Внутри — другой ритм.
+                </p>
+            </div>
+        </section>
+
+
+        <section class="scene-step" data-step="2">
+            <div class="step-copy step-copy--left">
+                <div class="eyebrow">02 / SPACE</div>
+                <h2>ЗДЕСЬ<br>НЕ СПЕШАТ.</h2>
+
+                <p>
+                    Несколько часов.<br>
+                    Один стол.<br>
+                    Никаких лишних звуков.
+                </p>
+            </div>
+        </section>
+
+
+        <section class="scene-step scene-step--table" data-step="3">
+            <div class="table-interface">
+
+                <div class="table-label">
+                    <span>03</span>
+                    <strong>THE TABLE</strong>
+                </div>
+
+                <button class="table-hotspot hotspot--menu">
+                    <span>КУХНЯ</span>
+                </button>
+
+                <button class="table-hotspot hotspot--wine">
+                    <span>ВИНО</span>
+                </button>
+
+                <button class="table-hotspot hotspot--evening">
+                    <span>ВЕЧЕР</span>
+                </button>
+
+            </div>
+        </section>
+
+
+        <section class="scene-step" data-step="4">
+            <div class="step-copy step-copy--right">
+                <div class="eyebrow">04 / KITCHEN</div>
+                <h2>ЗА КАЖДЫМ<br>БЛЮДОМ<br>ЕСТЬ РЕШЕНИЕ.</h2>
+            </div>
+        </section>
+
+
+        <section class="scene-step" data-step="5">
+            <div class="chef-copy">
+                <div class="eyebrow">05 / CHEF</div>
+
+                <div class="chef-name">
+                    АЛЕКСЕЙ<br>ВОЛКОВ
+                </div>
+
+                <div class="chef-role">
+                    ШЕФ-ПОВАР NOIRÉ
+                </div>
+
+                <p>
+                    Мы не усложняем продукт.<br>
+                    Мы показываем, на что он способен.
+                </p>
+            </div>
+        </section>
+
+
+        <section class="scene-step" data-step="6">
+            <div class="ingredients">
+                <div class="eyebrow">06 / PRODUCT</div>
+
+                <div class="ingredient-list">
+                    <span>СЕВЕРНАЯ РЫБА</span>
+                    <span>ГРИБЫ</span>
+                    <span>КОРНЕПЛОДЫ</span>
+                    <span>ЯГОДЫ</span>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="scene-step" data-step="7">
+            <div class="step-copy step-copy--left">
+                <div class="eyebrow">07 / PRECISION</div>
+                <h2>ТОЧНОСТЬ<br>НЕ ВИДНА.</h2>
+
+                <p>
+                    Но её чувствуют.
+                </p>
+            </div>
+        </section>
+
+
+        <section class="scene-step" data-step="8">
+            <div class="dish-copy">
+                <div class="dish-index">СЕВЕР / 01</div>
+
+                <h2>СУДАК</h2>
+
+                <p>
+                    корнеплод · лесные грибы · ягоды
+                </p>
+            </div>
+        </section>
+
+
+        <section class="scene-step" data-step="9">
+            <div class="step-copy step-copy--right">
+                <div class="eyebrow">09 / GUESTS</div>
+                <h2>А ТЕПЕРЬ<br>ПРОСТО<br>ОСТАНЬТЕСЬ.</h2>
+            </div>
+        </section>
+
+
+        <section class="scene-step" data-step="10">
+            <div class="minimal-label">
+                <span>10</span>
+                <strong>ПОДАЧА.</strong>
+            </div>
+        </section>
+
+
+        <section class="scene-step" data-step="11">
+            <div class="wine-copy">
+                <div class="eyebrow">11 / WINE</div>
+
+                <h2>
+                    К БЛЮДУ<br>
+                    НУЖЕН<br>
+                    ПРАВИЛЬНЫЙ<br>
+                    АКЦЕНТ.
+                </h2>
+            </div>
+        </section>
+
+
+        <section class="scene-step" data-step="12">
+            <div class="step-copy step-copy--left">
+                <div class="eyebrow">12 / EVENING</div>
+                <h2>ВЕЧЕР<br>УЖЕ<br>НАЧАЛСЯ.</h2>
+            </div>
+        </section>
+
+
+        <section class="scene-step scene-step--final" data-step="13" id="booking">
+
+            <div class="final-copy">
+
+                <div class="eyebrow">NOIRÉ · СУРГУТ</div>
+
+                <h2>
+                    ВАШ СТОЛ<br>
+                    ГОТОВ.
+                </h2>
+
+                <a href="#" class="booking-button">
+                    ЗАБРОНИРОВАТЬ СТОЛ
+                </a>
+
+                <div class="final-meta">
+                    <span>УЖИН · 18:00—00:00</span>
+                    <span>CONTEMPORARY FINE DINING</span>
+                </div>
+
+            </div>
+
+            <div class="final-case">
+                <span>DIGITAL CASE / AIKHARISOV</span>
+                <strong>NOIRÉ</strong>
+                <small>FICTIONAL RESTAURANT</small>
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <div class="progress" id="progress">
+        <span class="progress__current">01</span>
+
+        <div class="progress__line">
+            <span id="progressFill"></span>
+        </div>
+
+        <span class="progress__total">14</span>
+    </div>
+
+
+    <div class="scroll-hint" id="scrollHint">
+        <span>SCROLL</span>
+        <i></i>
+    </div>
+
+</main>
+
+
+<div class="menu-overlay" id="menuOverlay">
+
+    <button class="menu-overlay__close" id="menuClose">×</button>
+
+    <div class="menu-overlay__content">
+
+        <div class="menu-overlay__eyebrow">
+            NOIRÉ / MENU
+        </div>
+
+        <nav>
+            <a href="#hero" data-menu-step="0">ВХОД</a>
+            <a href="#hero" data-menu-step="2">ПРОСТРАНСТВО</a>
+            <a href="#hero" data-menu-step="3">СТОЛ</a>
+            <a href="#hero" data-menu-step="5">ШЕФ</a>
+            <a href="#hero" data-menu-step="8">БЛЮДО</a>
+            <a href="#hero" data-menu-step="11">ВИНО</a>
+            <a href="#booking" data-menu-step="13">БРОНЬ</a>
+        </nav>
+
+        <div class="menu-overlay__footer">
+            СУРГУТ · NOIRÉ
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
