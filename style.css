@@ -318,8 +318,9 @@ a {
     transform: scale(1);
 }
 
-.scene__image[data-scene="chef"] img {
-    object-position: center top;
+/* Блок 6: возвращаем шефа выше в кадре */
+.scene__image[data-scene="kitchen"] img {
+    object-position: center 42%;
 }
 
 .scene__grain {
@@ -466,7 +467,7 @@ a {
     position: absolute;
     left: 7%;
     bottom: 17%;
-    max-width: 420px;
+    max-width: 500px;
 }
 
 .table-copy .eyebrow {
@@ -474,24 +475,19 @@ a {
 }
 
 .table-copy h2 {
-    font-size: clamp(48px, 6vw, 96px);
+    font-size: clamp(44px, 5.5vw, 88px);
     line-height: 0.88;
     font-weight: 300;
     letter-spacing: -0.05em;
 }
 
-.table-copy p {
-    margin-top: 22px;
-    font-size: 15px;
-    line-height: 1.7;
-    color: rgba(232, 223, 209, 0.68);
-}
-
 /* CHEF */
 
 .chef-copy {
-    margin-left: clamp(24px, 5vw, 80px);
+    margin-left: clamp(24px, 4vw, 65px);
+    margin-right: auto;
     margin-top: 40px;
+    max-width: 500px;
 }
 
 .chef-name {
@@ -601,9 +597,17 @@ a {
 /* WINE */
 
 .wine-copy {
-    margin-left: clamp(80px, 17vw, 260px);
-    margin-top: 15vh;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: 0;
     max-width: 430px;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.wine-copy .eyebrow {
+    text-align: center;
 }
 
 .wine-copy h2 {
@@ -935,6 +939,7 @@ a {
         font-size: 14px;
     }
 
+    /* Блок 4 */
     .table-label {
         left: 24px;
         top: 18%;
@@ -948,16 +953,18 @@ a {
     }
 
     .table-copy h2 {
-        font-size: clamp(48px, 15vw, 70px);
+        font-size: clamp(42px, 12vw, 64px);
     }
 
-    .table-copy p {
-        font-size: 14px;
-    }
-
+    /* Блок 5 */
     .chef-copy {
-        margin-left: 24px;
-        margin-right: 24px;
+        margin-left: 20px;
+        margin-right: auto;
+    }
+
+    /* Блок 6 */
+    .scene__image[data-scene="kitchen"] img {
+        object-position: center 45%;
     }
 
     .chef-name {
@@ -977,6 +984,7 @@ a {
         font-size: clamp(58px, 18vw, 95px);
     }
 
+    /* Блок 10 */
     .minimal-label {
         left: 5%;
         top: 17%;
@@ -986,15 +994,29 @@ a {
         font-size: clamp(44px, 12vw, 65px);
     }
 
+    /* Блок 11 */
     .wine-copy {
-        margin-left: 18vw;
-        margin-right: 24px;
-        margin-top: 16vh;
+        left: 50%;
+        top: 50%;
+        margin: 0;
         max-width: 330px;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .wine-copy .eyebrow {
+        text-align: center;
     }
 
     .wine-copy h2 {
         max-width: 330px;
+        text-align: center;
+    }
+
+    /* Блок 12 */
+    .scene-step[data-step="12"] .step-copy--left {
+        margin-left: 12px;
+        margin-right: 24px;
     }
 
     .final-copy {
