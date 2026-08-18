@@ -490,7 +490,7 @@ a {
 /* CHEF */
 
 .chef-copy {
-    margin-left: clamp(24px, 4vw, 65px);
+    margin-left: 7%;
     margin-right: auto;
     margin-top: 40px;
     max-width: 500px;
@@ -604,16 +604,16 @@ a {
 
 .wine-copy {
     position: absolute;
-    left: 50%;
+    left: 7%;
     top: 50%;
     margin: 0;
     max-width: 430px;
-    transform: translate(-50%, -50%);
-    text-align: center;
+    transform: translateY(-50%);
+    text-align: left;
 }
 
 .wine-copy .eyebrow {
-    text-align: center;
+    text-align: left;
 }
 
 .wine-copy h2 {
@@ -1010,12 +1010,12 @@ a {
 
     /* БЛОК 10
        data-step="9"
-       Поднимаем текст ещё примерно на три высоты строки */
+       Текст поднят выше только на мобильной версии */
 
     .scene-step[data-step="9"] .step-copy--right {
         margin-left: 24px;
         margin-right: 24px;
-        margin-top: calc(-30vh - 3em);
+        margin-top: calc(-40vh - 3em);
     }
 
     /* БЛОК 11
@@ -1125,107 +1125,5 @@ a {
 
     .menu-overlay__footer {
         left: 24px;
-    }
-}
-/* =========================================================
-   FINAL TEXT POSITION FIX
-   ========================================================= */
-
-/* BLOCK 4 - TABLE
-   Поднимаем текст выше и на компьютере, и на телефоне */
-.scene-step[data-step="3"] .table-copy {
-    top: 38%;
-}
-
-/* BLOCK 6 - CHEF
-   Текст строго слева, шеф остаётся свободен */
-.scene-step[data-step="5"] .chef-copy {
-    left: 7%;
-    right: auto;
-    width: 34%;
-    text-align: left;
-}
-
-/* BLOCK 10 - GUESTS
-   Текст слева, не поверх гостей */
-.scene-step[data-step="9"] .step-copy--right {
-    left: 7%;
-    right: auto;
-    width: 34%;
-    margin-left: 0;
-    margin-right: 0;
-    text-align: left;
-}
-
-/* BLOCK 11 - SERVING
-   Надпись строго по центру экрана */
-.scene-step[data-step="10"] .minimal-label {
-    left: 50%;
-    right: auto;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
-
-/* BLOCK 12 - WINE
-   Текст слева, изображение и бокал остаются видимыми */
-.scene-step[data-step="11"] .wine-copy {
-    left: 7%;
-    right: auto;
-    width: 34%;
-    text-align: left;
-}
-
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
-@media (max-width: 768px) {
-
-    /* BLOCK 4 */
-    .scene-step[data-step="3"] .table-copy {
-        left: 50%;
-        right: auto;
-        top: 38%;
-        width: calc(100% - 48px);
-        max-width: 330px;
-        transform: translate(-50%, -50%);
-        text-align: center;
-    }
-
-    /* BLOCK 6 */
-    .scene-step[data-step="5"] .chef-copy {
-        left: 24px;
-        right: auto;
-        width: calc(100% - 48px);
-        text-align: left;
-    }
-
-    /* BLOCK 10 */
-    .scene-step[data-step="9"] .step-copy--right {
-        left: 24px;
-        right: auto;
-        width: calc(100% - 48px);
-        margin-left: 0;
-        margin-right: 0;
-        text-align: left;
-    }
-
-    /* BLOCK 11 */
-    .scene-step[data-step="10"] .minimal-label {
-        left: 50%;
-        right: auto;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-    }
-
-    /* BLOCK 12 */
-    .scene-step[data-step="11"] .wine-copy {
-        left: 24px;
-        right: auto;
-        width: calc(100% - 48px);
-        text-align: left;
     }
 }
