@@ -467,7 +467,7 @@ a {
 .table-copy {
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 40%;
     bottom: auto;
     max-width: 500px;
     transform: translate(-50%, -50%);
@@ -604,16 +604,16 @@ a {
 
 .wine-copy {
     position: absolute;
-    left: 50%;
+    left: 7%;
     top: 50%;
     margin: 0;
     max-width: 430px;
-    transform: translate(-50%, -50%);
-    text-align: center;
+    transform: translateY(-50%);
+    text-align: left;
 }
 
 .wine-copy .eyebrow {
-    text-align: center;
+    text-align: left;
 }
 
 .wine-copy h2 {
@@ -622,6 +622,7 @@ a {
     line-height: 0.9;
     font-weight: 300;
     letter-spacing: -0.05em;
+    text-align: left;
 }
 
 /* FINAL */
@@ -899,7 +900,7 @@ a {
     /* БЛОК 5 */
 
     .chef-copy {
-        margin-left: 3%;
+        margin-left: 0;
         margin-right: auto;
     }
 
@@ -989,7 +990,7 @@ a {
     }
 
     /* БЛОК 4
-       Строго по центру */
+       Поднят выше центра */
 
     .scene-step--table {
         align-items: center;
@@ -998,7 +999,7 @@ a {
 
     .table-copy {
         left: 50%;
-        top: 50%;
+        top: 40%;
         right: auto;
         bottom: auto;
         width: calc(100% - 48px);
