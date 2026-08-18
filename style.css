@@ -490,7 +490,7 @@ a {
 /* CHEF */
 
 .chef-copy {
-    margin-left: 7%;
+    margin-left: 3%;
     margin-right: auto;
     margin-top: 40px;
     max-width: 500px;
@@ -604,16 +604,16 @@ a {
 
 .wine-copy {
     position: absolute;
-    left: 7%;
+    left: 50%;
     top: 50%;
     margin: 0;
     max-width: 430px;
-    transform: translateY(-50%);
-    text-align: left;
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
 
 .wine-copy .eyebrow {
-    text-align: left;
+    text-align: center;
 }
 
 .wine-copy h2 {
@@ -892,6 +892,49 @@ a {
         );
 }
 
+/* DESKTOP TEXT POSITION FIX */
+
+@media (min-width: 801px) {
+
+    /* БЛОК 5 */
+
+    .chef-copy {
+        margin-left: 3%;
+        margin-right: auto;
+    }
+
+    /* БЛОК 10 */
+
+    .scene-step[data-step="9"] .step-copy--right {
+        margin-left: 3%;
+        margin-right: auto;
+    }
+
+    /* БЛОК 11 */
+
+    .scene-step[data-step="10"] {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .scene-step[data-step="10"] .minimal-label {
+        left: 50%;
+        top: 50%;
+        right: auto;
+        bottom: auto;
+        margin: 0;
+        transform: translate(-50%, -50%);
+        align-items: center;
+        text-align: center;
+    }
+
+    .scene-step[data-step="10"] .minimal-label span,
+    .scene-step[data-step="10"] .minimal-label strong {
+        width: 100%;
+        text-align: center;
+    }
+}
+
 /* MOBILE */
 
 @media (max-width: 800px) {
@@ -946,7 +989,7 @@ a {
     }
 
     /* БЛОК 4
-       Строго по центру + поднят примерно на две высоты строки заголовка */
+       Строго по центру */
 
     .scene-step--table {
         align-items: center;
@@ -955,7 +998,7 @@ a {
 
     .table-copy {
         left: 50%;
-        top: calc(50% - 2em);
+        top: 50%;
         right: auto;
         bottom: auto;
         width: calc(100% - 48px);
@@ -1010,17 +1053,17 @@ a {
 
     /* БЛОК 10
        data-step="9"
-       Текст поднят выше только на мобильной версии */
+       На мобильной версии поднят выше */
 
     .scene-step[data-step="9"] .step-copy--right {
         margin-left: 24px;
         margin-right: 24px;
-        margin-top: calc(-40vh - 3em);
+        margin-top: calc(-50vh - 3em);
     }
 
     /* БЛОК 11
        data-step="10"
-       Строго центр */
+       На мобильной версии оставлено без изменений */
 
     .scene-step[data-step="10"] {
         align-items: center;
