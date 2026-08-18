@@ -900,8 +900,25 @@ a {
     /* БЛОК 5 */
 
     .chef-copy {
-        margin-left: -3%;
-        margin-right: auto;
+        position: absolute;
+        left: 5vw;
+        top: 50%;
+        margin: 0;
+        width: min(400px, 32vw);
+        max-width: 400px;
+        transform: translateY(-50%);
+    }
+
+    /* БЛОК 6 */
+
+    .scene-step[data-step="6"] .ingredients {
+        position: absolute;
+        left: 6vw;
+        top: 50%;
+        margin: 0;
+        transform: translateY(-50%);
+        width: min(500px, 38vw);
+        max-width: 500px;
     }
 
     /* БЛОК 10 */
