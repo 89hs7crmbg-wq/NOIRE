@@ -901,7 +901,7 @@ a {
 
     .chef-copy {
         position: absolute;
-        left: 5vw;
+        left: 1.5vw;
         top: 50%;
         margin: 0;
         width: min(400px, 32vw);
